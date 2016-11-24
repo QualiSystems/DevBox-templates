@@ -5,8 +5,7 @@ topology_template:
     python_server1:
       type: tosca.nodes.Python
       artifacts:
-        binaries:
-          path: bin/dist/my.jar
+        file1: devbox.yaml
     python_client1:
       type: tosca.nodes.Python
 
