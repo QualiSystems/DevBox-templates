@@ -19,7 +19,7 @@ topology_template:
           default: "nohup node /webserver/webserver.js >/dev/null 2>&1 &"
         deployment_ports:
           type: string
-          default: [22, 80]
+          default: [ 22, 80 ]
       artifacts:
         binaries:
           artifacts_path: ./webserver
