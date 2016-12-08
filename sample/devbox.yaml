@@ -8,6 +8,9 @@ topology_template:
         deployment_command:
           type: string
           default: /usr/sbin/sshd -D
+        deployment_ports:
+          type: string
+          default: [22, 80]
         ports_bindings:
           type: string
           default: "{80:8080}"
@@ -17,9 +20,6 @@ topology_template:
         execution_command:
           type: string
           default: "nohup node /webserver/webserver.js >/dev/null 2>&1 &"
-        deployment_ports:
-          type: string
-          default: [22, 80]
       artifacts:
         binaries:
           artifacts_path: ./webserver
