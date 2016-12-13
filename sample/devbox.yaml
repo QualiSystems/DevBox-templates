@@ -19,10 +19,32 @@ topology_template:
           default: ./playbook.yaml
         execution_command:
           type: string
-          default: "nohup node /webserver/webserver.js >/dev/null 2>&1 &"
+          default: "nohup node --harmony /webserver/webserver.js >/dev/null 2>&1 &"
       artifacts:
         binaries:
           artifacts_path: ./webserver
+          deploy_path: /
+    application_server:
+      type: tosca.nodes.sshable
+      properties:
+        deployment_command:
+          type: string
+          default: /usr/sbin/sshd -D
+        deployment_ports:
+          type: string
+          default: [22, 9000]
+        deployment_image:
+          type: string
+          default: rastasheep/ubuntu-sshd-flask
+        provisioning_instruction:
+          type: string
+          default: ""
+        execution_command:
+          type: string
+          default: "nohup python /appserver/appserver.py >/dev/null 2>&1 &"
+      artifacts:
+        binaries:
+          artifacts_path: ./appserver
           deploy_path: /
 
 node_types:

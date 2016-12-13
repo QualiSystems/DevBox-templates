@@ -1,3 +1,5 @@
 {
-    "serverPort" : "80"
+    "listeningPort" : "80",
+    "appServerAddress" : "172.17.0.2",
+    "appServerPort" : "9000"
 }
